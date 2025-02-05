@@ -5,6 +5,22 @@ let num = document.getElementById("number");
 
 let result = document.getElementById("result");
 
+passLength.addEventListener("input", ()=>{
+    generatPassword();
+})
+
+uprCase.addEventListener("input",()=>{
+    generatPassword();
+})
+
+splChr.addEventListener("input",()=>{
+    generatPassword();
+})
+
+num.addEventListener("input",()=>{
+    generatPassword();
+})
+
 
 const lAlpha = "abcdefghijklmnopqrstuvwxyz";
 const uAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -38,9 +54,9 @@ function generatPassword(){
 
         while(1)
         {
-            let random = Math.floor(Math.random()*26);
+            let random = Math.floor(Math.random()*uAlpha.length);
             let randomIdx = Math.floor(Math.random()*passLength.value);
-            if(arr[randomIdx] === undefined)
+            if(arr[randomIdx] == null)
             {
                 arr[randomIdx] = uAlpha[random];
                 break;
@@ -53,9 +69,9 @@ function generatPassword(){
         range+=numbers;
         while(1)
             {
-                let random = Math.floor(Math.random()*10);
+                let random = Math.floor(Math.random()*numbers.length);
                 let randomIdx = Math.floor(Math.random()*passLength.value);
-                if(arr[randomIdx] === undefined)
+                if(arr[randomIdx] == null)
                 {
                     arr[randomIdx] = numbers[random];
                     break;
@@ -68,9 +84,9 @@ function generatPassword(){
         range+= symbols;
         while(1)
         {
-            let random = Math.floor(Math.random()*29);
+            let random = Math.floor(Math.random()*symbols.length);
             let randomIdx = Math.floor(Math.random()*passLength.value);
-            if(arr[randomIdx] === undefined)
+            if(arr[randomIdx] == null)
             {
                 arr[randomIdx] = symbols[random];
                 break;
@@ -80,7 +96,7 @@ function generatPassword(){
 
     for(let i=0;i<passLength.value;i++)
     {
-        if(arr[i] === undefined)
+        if(arr[i] == null)
         {
             let random = Math.floor(Math.random()*range.length);
             arr[i] = range[random];
